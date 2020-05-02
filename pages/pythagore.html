@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <title>Exerciseur de mathématiques</title>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/pure-min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CAS-like -->
+  <script type="text/javascript" src="../js/math.min.js"></script>
+  <!-- Render LaTeX -->
+  <script type="text/javascript" id="MathJax-script"
+  src="../js/MathJax-master/es5/tex-chtml.js"></script>
+  <script type="text/javascript" src="../js/utilities.js"></script>
+  <!-- Templating -->
+  <script type="text/javascript" src="../js/mustache.min.js"></script>
+</head>
+<body style="text-align: center;">
+  <div id="render">Cette page requiert JavaScript.</div>
+  
+  <script>
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let min = 1;
+    let max = 100;
+    let length_a = undefined;
+    let length_b = undefined;
+    let a_squared = undefined;
+    let b_squared = undefined;
+    let sum_of_squares = undefined;
+    let length_hypotenuse = undefined;
+    let triangle = undefined;
+    let right_angle = undefined;
+    let side_a = undefined;
+    let side_b = undefined;
+    let hypotenuse = undefined;
+    let vertex_a = undefined;
+    let vertex_b = undefined;
+    let vertex_c = undefined;
+    let data = undefined;
+    let fetched_template = undefined;
+    let shuffled_alphabet = undefined;
+    initialiseProblem();
+    fetch('templates/pythagore_template.html')
+    .then((response) => response.text())
+    .then((template) => {
+      fetched_template = template;
+      var rendered = Mustache.render(fetched_template, data);
+      document.getElementById('render').innerHTML = rendered;  
+      MathJax.typeset();
+    });
+
+    
+    function initialiseProblem()
+    {
+      length_a = getRandomIntInclusive(min, max);
+      length_b = getRandomIntInclusive(min, max);
+      shuffled_alphabet = alphabet.shuffle();
+      right_angle = vertex_a;
+      vertex_a = shuffled_alphabet[0];
+      vertex_b = shuffled_alphabet[1];
+      vertex_c = shuffled_alphabet[2];
+      triangle = vertex_a + vertex_b + vertex_c;
+      side_a = vertex_a + vertex_c;
+      side_b = vertex_b + vertex_c;
+      hypotenuse = vertex_b + vertex_c; 
+      a_squared = length_a * length_a;
+      b_squared = length_b * length_b;
+      sum_of_squares = a_squared + b_squared;
+      length_hypotenuse = roundDecimal(Math.sqrt(sum_of_squares),1);
+      data = {triangle, right_angle, vertex_a, vertex_b, vertex_c, side_a, side_b, length_a, length_b, a_squared, b_squared, sum_of_squares, length_hypotenuse, hypotenuse};
+    }
+
+    function resetProblem()
+    {
+      document.getElementById('hidden').style.visibility='hidden';
+      initialiseProblem();
+      let rendered = Mustache.render(fetched_template, data);
+      document.getElementById('render').innerHTML = rendered;  
+      MathJax.typeset();
+    }
+  </script>
+</body>
+</html>
