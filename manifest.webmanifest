@@ -4,19 +4,19 @@
     "description": "Exerciseurs de mathématiques pour le collège",
     "icons": [
       {
-        "src": "/images/Margaret_Hamilton_192.jpg",
-        "type": "image/jpeg",
+        "src": "/images/Margaret_Hamilton_192.png",
+        "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "/images/Margaret_Hamilton_512.jpg",
-        "type": "image/jpeg",
+        "src": "/images/Margaret_Hamilton_512.png",
+        "type": "image/png",
         "sizes": "512x512"
       }
     ],
     "start_url": "/",
-    "background_color": "#3367D6",
+    "background_color": "#FFAEC9",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#3367D6"
+    "theme_color": "#FFAEC9"
   }
