@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8"/>
-  <title>Exerciseur de mathématiques</title>
+  <title>Exerciseur Vimaths</title>
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/pure-min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/images/Margaret_Hamilton_192.png">
   <!-- CAS-like -->
-  <script type="text/javascript" src="../js/math.min.js"></script>
+  <!--<script type="text/javascript" src="../js/math.min.js"></script>-->
   <!-- Render LaTeX -->
   <script type="text/javascript" id="MathJax-script"
   src="../js/MathJax-master/es5/tex-chtml.js"></script>
@@ -55,11 +56,11 @@
       length_a = getRandomIntInclusive(min, max);
       length_b = getRandomIntInclusive(min, max);
       shuffled_alphabet = alphabet.shuffle();
-      right_angle = vertex_a;
       vertex_a = shuffled_alphabet[0];
       vertex_b = shuffled_alphabet[1];
       vertex_c = shuffled_alphabet[2];
       triangle = vertex_a + vertex_b + vertex_c;
+      right_angle = vertex_a;
       side_a = vertex_a + vertex_c;
       side_b = vertex_b + vertex_c;
       hypotenuse = vertex_b + vertex_c; 

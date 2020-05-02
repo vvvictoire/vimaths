@@ -20,8 +20,7 @@ self.addEventListener('install', function(e) {
         '/js/MathJax-master/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff',
         // Pages & templates
         '/pages/pythagore.html',
-        '/pages/templates/pythagore_template.html',
-        '/pages/medic.html'
+        '/pages/templates/pythagore_template.html'
       ]);
     })
     );
