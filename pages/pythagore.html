@@ -21,56 +21,59 @@
   
   <script>
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let min = 1;
-    let max = 100;
-    let length_a = undefined;
-    let length_b = undefined;
-    let a_squared = undefined;
-    let b_squared = undefined;
-    let sum_of_squares = undefined;
-    let length_hypotenuse = undefined;
-    let triangle = undefined;
-    let right_angle = undefined;
-    let side_a = undefined;
-    let side_b = undefined;
-    let hypotenuse = undefined;
-    let vertex_a = undefined;
-    let vertex_b = undefined;
-    let vertex_c = undefined;
-    let data = undefined;
-    let fetched_template = undefined;
-    let shuffled_alphabet = undefined;
+    const min = 1;
+    const max = 100;
+    let data = {
+      lengthA : undefined,
+      lengthB : undefined,
+      ASquared : undefined,
+      BSquared : undefined,
+      sumOfSquares : undefined,
+      lengthHypotenuse : undefined,
+      triangle : undefined,
+      rightAngle : undefined,
+      sideA : undefined,
+      sideB : undefined,
+      hypotenuse : undefined,
+      vertexA : undefined,
+      vertexB : undefined,
+      vertexC : undefined,
+    };
+    let fetchedTemplate = undefined;
     initialiseProblem();
     fetch('templates/pythagore_template.html')
     .then((response) => response.text())
     .then((template) => {
-      fetched_template = template;
-      var rendered = Mustache.render(fetched_template, data);
+      fetchedTemplate = template;
+      var rendered = Mustache.render(fetchedTemplate, data);
       document.getElementById('render').innerHTML = rendered;  
       MathJax.typeset();
     });
-
+    
     
     function initialiseProblem()
     {
-      length_a = getRandomIntInclusive(min, max);
-      length_b = getRandomIntInclusive(min, max);
-      shuffled_alphabet = alphabet.shuffle();
-      vertex_a = shuffled_alphabet[0];
-      vertex_b = shuffled_alphabet[1];
-      vertex_c = shuffled_alphabet[2];
-      triangle = vertex_a + vertex_b + vertex_c;
-      right_angle = vertex_a;
-      side_a = vertex_a + vertex_c;
-      side_b = vertex_b + vertex_c;
-      hypotenuse = vertex_b + vertex_c; 
-      a_squared = length_a * length_a;
-      b_squared = length_b * length_b;
-      sum_of_squares = a_squared + b_squared;
-      length_hypotenuse = decimalWithComma(roundDecimal(Math.sqrt(sum_of_squares),1));
-      data = {triangle, right_angle, vertex_a, vertex_b, vertex_c, side_a, side_b, length_a, length_b, a_squared, b_squared, sum_of_squares, length_hypotenuse, hypotenuse};
+      // Initialise lengths
+      data.lengthA = getRandomIntInclusive(min, max);
+      data.lengthB = getRandomIntInclusive(min, max);
+      // Initialise triangle name
+      let shuffled_alphabet = alphabet.shuffle();
+      data.vertexA = shuffled_alphabet[0];
+      data.vertexB = shuffled_alphabet[1];
+      data.vertexC = shuffled_alphabet[2];
+      data.triangle = data.vertexA+ data.vertexB + data.vertexC;
+      data.rightAngle = data.vertexA;
+      data.sideA = data.vertexA + data.vertexC;
+      data.sideB = data.vertexB + data.vertexC;
+      data.hypotenuse = data.vertexB + data.vertexC;
+      // Compute length of hypotenuse
+      data.ASquared = data.lengthA * data.lengthA;
+      data.BSquared = data.lengthB * data.lengthB;
+      data.sumOfSquares = data.ASquared + data.BSquared;
+      // Take the square root of sumOfSquares, round it to 10^-1, then write it with a comma
+      data.lengthHypotenuse = decimalWithComma(roundDecimal(Math.sqrt(data.sumOfSquares),1));
     }
-
+    
     function resetProblem()
     {
       document.getElementById('hidden').style.visibility='hidden';

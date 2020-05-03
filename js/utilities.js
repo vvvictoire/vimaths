@@ -39,7 +39,7 @@ String.prototype.shuffle = function () {
 }
 
 /**
- * Returns a rounded number, to a precision of 10^precision
+ * Returns a rounded number, to a precision of 10^-precision
  * @param {number} num 
  * @param {number} precision 
  */

@@ -1,30 +1,30 @@
 <h1>Exerciseur : Théorème de Pythagore</h1>
-Soit un triangle \({{triangle}}\) rectangle en \({{right_angle}}\), avec \({{side_a}} =
-{{length_a}}\) cm et \({{side_b}} = {{length_b}}\) cm.<br>
+Soit un triangle \({{triangle}}\) rectangle en \({{rightAngle}}\), avec \({{sideA}} =
+{{lengthA}}\) cm et \({{sideB}} = {{lengthB}}\) cm.<br>
 
 Calculer la valeur exacte et la valeur approchée au mm près de la longueur \({{hypotenuse}}\).<br>
 <button class="pure-button" onclick="document.getElementById('hidden').style.visibility='visible';">Afficher la solution</button><br>
 <div id="hidden" style="visibility: hidden;">
-    Dans le triangle \({{triangle}}\) est rectangle en \({{right_angle}}\).
+    Dans le triangle \({{triangle}}\) est rectangle en \({{rightAngle}}\).
     D’après le théorème de Pythagore, on a:
     \[
     \begin{align}
-    {{hypotenuse}}^2 &= {{side_a}}^2 + {{side_b}}^2 \\
-    {{hypotenuse}}^2 &= {{length_a}}^2 + {{side_b}}^2 \\
-    {{hypotenuse}}^2 &= {{a_squared}} + {{b_squared}} \\
-    {{hypotenuse}}^2 &= {{sum_of_squares}} \\
+    {{hypotenuse}}^2 &= {{sideA}}^2 + {{sideB}}^2 \\
+    {{hypotenuse}}^2 &= {{lengthA}}^2 + {{sideB}}^2 \\
+    {{hypotenuse}}^2 &= {{Asquared}} + {{Bsquared}} \\
+    {{hypotenuse}}^2 &= {{sumOfSquares}} \\
     \end{align}
     \]
     On a \({{hypotenuse}}\) qui est une distance, donc \({{hypotenuse}} \geqslant 0\). Donc je peux prendre la racine carrée des 2 membres :
     \[
     \begin{align}
-    \sqrt{ {{hypotenuse}}^2 } &= \sqrt{ {{sum_of_squares}} } \\
-    {{hypotenuse}} &= \sqrt{ {{sum_of_squares}} } \text{ (valeur exacte)} \\
-    {{hypotenuse}} &\approx {{length_hypotenuse}} \text{ (valeur approchée)} \\
+    \sqrt{ {{hypotenuse}}^2 } &= \sqrt{ {{sumOfSquares}} } \\
+    {{hypotenuse}} &= \sqrt{ {{sumOfSquares}} } \text{ (valeur exacte)} \\
+    {{hypotenuse}} &\approx {{lengthHypotenuse}} \text{ (valeur approchée)} \\
     \end{align}
     \]
 
-    La longueur \({{hypotenuse}}\) mesure \(\sqrt{ {{sum_of_squares}} }\) cm (ou
-    approximativement \({{length_hypotenuse}}\) cm).<br>
+    La longueur \({{hypotenuse}}\) mesure \(\sqrt{ {{sumOfSquares}} }\) cm (ou
+    approximativement \({{lengthHypotenuse}}\) cm).<br>
     <button class="pure-button" onclick="resetProblem();">Nouvel exercice</button><br>
 </div>
