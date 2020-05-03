@@ -67,7 +67,7 @@
       a_squared = length_a * length_a;
       b_squared = length_b * length_b;
       sum_of_squares = a_squared + b_squared;
-      length_hypotenuse = roundDecimal(Math.sqrt(sum_of_squares),1);
+      length_hypotenuse = decimalWithComma(roundDecimal(Math.sqrt(sum_of_squares),1));
       data = {triangle, right_angle, vertex_a, vertex_b, vertex_c, side_a, side_b, length_a, length_b, a_squared, b_squared, sum_of_squares, length_hypotenuse, hypotenuse};
     }
 

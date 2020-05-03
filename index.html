@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8"/>
-    <title>Exerciseur Vimaths</title>
-    <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="icon" type="image/png" href="/images/Margaret_Hamilton_192.png">
-    <link rel="stylesheet" href="../css/normalize.css">
-  <link rel="stylesheet" href="../css/pure-min.css">
+  <meta charset="utf-8"/>
+  <title>Exerciseurs Vimaths</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" type="image/png" href="/images/Margaret_Hamilton_192.png">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/pure-min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="text-align: center;">    
-    <a class="pure-button" href="pages/pythagore.html">Exerciseur Pythagore</a>
-    <script>
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker
-                   .register('/sw.js')
-                   .then(function() { console.log("Service Worker Registered"); });
-        }
-    </script>
+<body style="text-align: center;">   
+  <h1>Exerciseurs Vimaths</h1>
+  <a class="pure-button" href="/pages/pythagore.html">Théorème de Pythagore</a>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+      .register('/sw.js')
+      .then(function() { console.log("Service Worker Registered"); });
+    }
+  </script>
 </body>

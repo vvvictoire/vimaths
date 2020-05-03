@@ -1,12 +1,11 @@
 /**
- * Returns a string ready to be rendered by MathJax
- * @param {string} name 
- * @param {number} length 
- * @param {string} unit
+ * Returns a string contaning the decimal number with a comma instead of the point
+ * @param {number} decimal 
  */
-function renderLength(name, length, unit = '')
+function decimalWithComma(decimal)
 {
-    return `\\( ${name} = ${length} \\text{ ${unit} } \\)`;
+    let decimalString = decimal.toString();
+    return decimalString.replace('.', ',');
 }
 
 /**
@@ -39,7 +38,12 @@ String.prototype.shuffle = function () {
     return a.join("");
 }
 
-function roundDecimal(num, prec)
+/**
+ * Returns a rounded number, to a precision of 10^precision
+ * @param {number} num 
+ * @param {number} precision 
+ */
+function roundDecimal(num, precision)
 {
-  return +(Math.round(num + "e+" + prec)  + "e-" + prec);
+  return +(Math.round(num + "e+" + precision)  + "e-" + precision);
 }
