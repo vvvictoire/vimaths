@@ -1,7 +1,7 @@
 /**
- * Returns a string contaning the decimal number with a comma instead of the point
- * @param {number} decimal 
- */
+* Returns a string contaning the decimal number with a comma instead of the point
+* @param {number} decimal 
+*/
 function decimalWithComma(decimal)
 {
     let decimalString = decimal.toString();
@@ -9,11 +9,11 @@ function decimalWithComma(decimal)
 }
 
 /**
- * Returns an integer between [min; max] inclusive
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
- * @param {number} min 
- * @param {number} max 
- */
+* Returns an integer between [min; max] inclusive
+* @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+* @param {number} min 
+* @param {number} max 
+*/
 function getRandomIntInclusive(min, max)
 {
     min = Math.ceil(min);
@@ -22,13 +22,14 @@ function getRandomIntInclusive(min, max)
 }
 
 /**
- * Shuffles a string in place
- * @see https://stackoverflow.com/a/3943985
- */
-String.prototype.shuffle = function () {
+* Shuffles a string in place
+* @see https://stackoverflow.com/a/3943985
+*/
+String.prototype.shuffle = function ()
+{
     let a = this.split(""),
-        n = a.length;
-
+    n = a.length;
+    
     for(let i = n - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         let tmp = a[i];
@@ -39,11 +40,21 @@ String.prototype.shuffle = function () {
 }
 
 /**
- * Returns a rounded number, to a precision of 10^-precision
- * @param {number} num 
- * @param {number} precision 
- */
+* Returns a rounded number, to a precision of 10^-precision
+* @param {number} num 
+* @param {number} precision 
+*/
 function roundDecimal(num, precision)
 {
-  return +(Math.round(num + "e+" + precision)  + "e-" + precision);
+    return +(Math.round(num + "e+" + precision)  + "e-" + precision);
+}
+
+/**
+ * Returns the value of the parameter in the request
+ * @param {string} name 
+ */
+function get(name)
+{
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+    return decodeURIComponent(name[1]);
 }
